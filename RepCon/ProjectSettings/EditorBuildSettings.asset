@@ -17,4 +17,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SceneWin.unity
     guid: c56154a3e811cc4438ffebc38479ec4b
+  - enabled: 1
+    path: Assets/Scenes/Scene1.unity
+    guid: 1ecc984b305c046488acd2e91f1498c2
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0
