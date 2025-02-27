@@ -11,27 +11,28 @@ public class VideoController : MonoBehaviour
          if (videoPlayer == null)
             videoPlayer = GetComponent<VideoPlayer>();
 
-         if (videoPlayer != null)
+         //if (videoPlayer != null);
             
-            videoPlayer.loopPointReached += OnVideoEnd;
+            //videoPlayer.loopPointReached += OnVideoEnd;
         
       
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        /*if (Input.GetKeyDown(KeyCode.Space))
         {
             
             SceneManager.LoadScene(nextSceneName);
         
-        }
+        }*/
         
     }
     
-    void OnVideoEnd(VideoPlayer vp)
+    /*void OnVideoEnd(VideoPlayer vp)
     {
         Debug.Log("Video ist zu Ende! Wechsel zur Szene...");
         SceneManager.LoadScene(nextSceneName);
     }
+    */
 }

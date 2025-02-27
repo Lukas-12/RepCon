@@ -8,9 +8,8 @@ using UnityEngine.Audio;
 using UnityEngine.Video;
 
 public class Scene1Dialogue : MonoBehaviour {
-// These are the script variables.
-// For more character images / buttons, copy & renumber the variables:
-        public int primeInt = 0;        // This integer drives game progress!
+
+        public int primeInt = 0;     
         public GameObject NextScene1Button;
         public GameObject NextScene2Button;
         public GameObject nextButton;
@@ -27,6 +26,7 @@ public class Scene1Dialogue : MonoBehaviour {
         public TMP_Text speech4Text;
         public GameObject speech4;
         public TMP_Text speech5Text;
+        public GameObject intodruction;
         public GameObject speech5;
         public VideoPlayer videoPlayer;
         public GameObject hiddenImage;
@@ -38,11 +38,12 @@ public class Scene1Dialogue : MonoBehaviour {
         private int imageIndex = 0;
 
         void Start(){  
-                
+        
              NextScene1Button.SetActive(false);
              NextScene2Button.SetActive(false);
              nextButton.SetActive(false);
              hiddenButton.SetActive(false);
+             intodruction.SetActive(true);
              lotti2Text.SetActive(false);
              speech1.SetActive(false);
              speech2.SetActive(false);
@@ -58,7 +59,8 @@ public class Scene1Dialogue : MonoBehaviour {
         }
 
 
-        void Update(){        
+        void Update(){    
+                /*    
              if (allowSpace == true){
                  if (Input.GetKeyDown("space")){
                         if(primeInt != 1){
@@ -66,13 +68,15 @@ public class Scene1Dialogue : MonoBehaviour {
                         }
                      
                  }
+                 
 
-                 // secret debug code: go back 1 Story Unit, if NEXT is visible
+                 
                  if (Input.GetKeyDown("p")) {
                       primeInt -= 2;
                       Next();
                  }
              }
+             */
         }
 
 //Story Units! The main story function.
@@ -83,6 +87,7 @@ public void Next(){
         if (primeInt == 1){
                 videoPlayer.clip = videoClips[videoIndex];
                 currentVideo.SetActive(true);
+                intodruction.SetActive(false);
                 
         }
         else if (primeInt == 2){
@@ -123,10 +128,19 @@ public void Next(){
        else if (primeInt == 6){
                 UpdateBG();
                 lotti2Text.SetActive(true);
-                lottispeech1.text = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.";
+                //lottispeech1.text ="Finally, look what we found! It seems\nthis is the first monument of a woman\nthat we have encountered. They do\nbe rare, huh. Do you know who this is?\nObviously! It is Maria Theresa of House\nHabsburg, maybe first of her name,\nwho knows! Let me get some facts about\nthis personality... where do I have my\nnotebook.. ah, here it is! ";
+
+
+
+
+
+
+
        }
        else if (primeInt == 7){
                 UpdateBG();
+                primeInt+=1;
+                imageIndex +=1;
                 lotti2Text.SetActive(false);
        }
         else if (primeInt == 8){
@@ -136,31 +150,31 @@ public void Next(){
         else if (primeInt == 9){
                 UpdateBG();
                 speech1.SetActive(true);
-                speech1Text.text = "Lorem ipsum dolor sit amet,";
+
                 
        }
        else if (primeInt == 10){
                 UpdateBG();
                 speech2.SetActive(true);
-                speech2Text.text = "Lorem ipsum dolor sit amet, consetetur ";
+
                 
        }
        else if (primeInt == 11){
                 UpdateBG();
                 speech3.SetActive(true);
-                speech3Text.text = "Lorem ipsum dolor sit amet, consetetur";
+               
                 
        }
        else if (primeInt == 12){
                 UpdateBG();
                 speech4.SetActive(true);
-                speech4Text.text = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr,  diam voluptua.";
+                
                 
        }
        else if (primeInt == 13){
                 UpdateBG();
                 speech5.SetActive(true);
-                speech5Text.text = "Lorem ipsum dolor sit amet, consetetur sadipscin oluptua.";
+                
                 
        }
        else if (primeInt == 14){
@@ -177,6 +191,9 @@ public void Next(){
                 speech5.SetActive(false);
                 videoPlayer.clip = videoClips[videoIndex];
                 currentVideo.SetActive(true);
+       }
+       else if (primeInt == 16){
+                SceneManager.LoadScene("SceneEnd");
        }
 
      }

@@ -14,7 +14,7 @@ public class GameHandler : MonoBehaviour{
         public AudioMixer mixer;
         public static float volumeLevel = 1.0f;
         private Slider sliderVolumeCtrl;
-
+        public string nextScene;
         void Awake(){
                 SetLevel (volumeLevel);
                 GameObject sliderTemp = GameObject.FindWithTag("PauseMenuSlider");
@@ -26,16 +26,14 @@ public class GameHandler : MonoBehaviour{
         void Start(){
                 pauseMenuUI.SetActive(false);
                 GameisPaused = false;
+                
         }
        void Update(){
                 if (Input.GetKeyDown(KeyCode.Escape)){
                         if (GameisPaused){ Resume(); }
                         else{ Pause(); }
                 }
-                // Stat tester:
-                //if (Input.GetKey("p")){
-                //       Debug.Log("Player Stat = " + playerStat1);
-                //}
+               
         }
 
          public void Pause(){
@@ -55,6 +53,7 @@ public class GameHandler : MonoBehaviour{
 
         public void StartGame(){
                 SceneManager.LoadScene("Scene0");
+
         }
 
         public void OpenCredits(){
@@ -72,5 +71,9 @@ public class GameHandler : MonoBehaviour{
                 #else
                 Application.Quit();
                 #endif
+        }
+        public void NextScene(){
+                SceneManager.LoadScene(nextScene);
+                
         }
 }
